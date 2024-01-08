@@ -10,6 +10,9 @@ import { IconFileDownload } from "@tabler/icons-react";
 
 const App = () => {
   const { isOpen, openModal, closeModal } = useModal();
+  const handleSubmit = (event:any) =>{
+    event.preventDefault();
+  }
   return (
     <div className=" app_container flex  flex-col m-auto w-[90vw] lg:w-[60vw] relative">
       {isOpen&&<div className=' w-[100vw] h-[100vh] bg-[rgba(255,255,255, 20%)] fixed z-[100] left-0 flex items-center justify-center' style={{backdropFilter: "blur(5px)"}}>
@@ -34,7 +37,7 @@ const App = () => {
           </div>
       </div>}
     <h2 className=" w-full sm:text-3xl text-5xl font-extrabold text-slate-700 mb-9 mt-12 flex items-center justify-start gap-3"><img src="icon.png" width="50px" height="50px"/>Heart Disease Prediction</h2>
-    <form className="flex justify-around items-center flex-col w-full">
+    <form onSubmit={handleSubmit} className="flex justify-around items-center flex-col w-full">
     <div className=" form_entry w-full">
       <InputNumber type="number" placeholder="Number" labelname="Age" />
       <InputNumber type="number" placeholder="Category" labelname="Sex" />
