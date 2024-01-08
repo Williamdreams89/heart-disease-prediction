@@ -12,7 +12,7 @@ const App = () => {
       {opened&&<div className=' w-[100%] h-[100%] bg-[rgba(255,255,255, 10%)] blur-lg fixed z-[100] left-0' style={{backdropFilter: "blur(5px)"}}>
           <h2>Wiliam</h2>
       </div>}
-    <h2 className=" sm:text-3xl text-5xl font-extrabold text-slate-700 mb-9 mt-12">Heart Disease Prediction</h2>
+    <h2 className=" w-full sm:text-3xl text-5xl font-extrabold text-slate-700 mb-9 mt-12 flex items-center justify-start gap-3"><img src="icon.png" width="50px" height="50px"/>Heart Disease Prediction</h2>
     <form className="flex justify-around items-center flex-col w-full">
     <div className=" form_entry w-full">
       <InputNumber type="number" placeholder="Number" labelname="Age" />
