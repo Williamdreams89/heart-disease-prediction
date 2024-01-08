@@ -14,8 +14,10 @@ import { Button } from 'primereact/button';
 import { Tooltip } from 'primereact/tooltip';
 import { Tag } from 'primereact/tag';
 import { Modal } from '@mantine/core';
+import { useModal } from '../contexts/ModalContext';
 
 export default function TemplateDemo() {
+  const {openModal} = useModal()
     const toast = useRef<Toast>(null);
     const [totalSize, setTotalSize] = useState(0);
     const fileUploadRef = useRef<FileUpload>(null);
@@ -94,7 +96,7 @@ export default function TemplateDemo() {
                 <i className="pi pi-image mt-3 p-5" style={{ fontSize: '5em', borderRadius: '50%', backgroundColor: 'var(--surface-b)', color: 'var(--surface-d)' }}></i>
                 <span style={{ fontSize: '1.2em', color: 'var(--text-color-secondary)' }} className="my-5 w-[60%] text-center">
                 You can drag and drop a dataset (CSV, XLSX, XLS) anywhere on this page to upload.
-                <br /> <small className=' cursor-pointer text-blue-500'>(What should my dataset look like?)</small>                
+                <br /> <small onClick={openModal} className=' cursor-pointer text-blue-500'>(What should my dataset look like?)</small>                
                 </span>
             </div>
         );

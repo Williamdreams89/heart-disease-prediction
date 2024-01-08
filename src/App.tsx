@@ -2,15 +2,20 @@ import InputNumber from "./ui/inputField"
 import './App.css';
 import '@mantine/dropzone/styles.css';
 import DropzoneCompo from "./ui/Dropzone"
-import { useState, FC } from "react";
+import { useState, FC, useEffect } from "react";
+import { useModal } from "./contexts/ModalContext";
+import { IconX } from "@tabler/icons-react";
 
 
 const App = () => {
-  const [opened, setOpened] = useState<boolean>(false)
+  const { isOpen, openModal, closeModal } = useModal();
   return (
     <div className=" app_container flex  flex-col m-auto w-[90vw] lg:w-[60vw] relative">
-      {opened&&<div className=' w-[100%] h-[100%] bg-[rgba(255,255,255, 10%)] blur-lg fixed z-[100] left-0' style={{backdropFilter: "blur(5px)"}}>
-          <h2>Wiliam</h2>
+      {isOpen&&<div className=' w-[100vw] h-[100vh] bg-[rgba(255,255,255, 20%)] fixed z-[100] left-0 flex items-center justify-center' style={{backdropFilter: "blur(5px)"}}>
+          <div className="w-[80%] h-[300px] bg-slate-400 fixed z-50">
+            <IconX onClick={closeModal} />
+
+          </div>
       </div>}
     <h2 className=" w-full sm:text-3xl text-5xl font-extrabold text-slate-700 mb-9 mt-12 flex items-center justify-start gap-3"><img src="icon.png" width="50px" height="50px"/>Heart Disease Prediction</h2>
     <form className="flex justify-around items-center flex-col w-full">
