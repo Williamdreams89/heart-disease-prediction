@@ -12,6 +12,7 @@ import { ProgressBar } from 'primereact/progressbar';
 import { Button } from 'primereact/button';
 import { Tooltip } from 'primereact/tooltip';
 import { Tag } from 'primereact/tag';
+import { Modal } from '@mantine/core';
 
 export default function TemplateDemo() {
     const toast = useRef<Toast>(null);
@@ -84,12 +85,20 @@ export default function TemplateDemo() {
         );
     };
 
+    const [opened, setOpened] = useState(false)
+
     const emptyTemplate = () => {
+      
         return (
             <div className="flex align-items-center flex-column">
+              <Modal centered opened={opened} onClose={()=>setOpened(false)} title="What should my dataset look like?
+                overlayColor={theme.colorScheme === 'dark' ? theme.colors.dark[9] : theme.colors.gray[2]}
+                overlayOpacity={0.95}
+              "></Modal>
                 <i className="pi pi-image mt-3 p-5" style={{ fontSize: '5em', borderRadius: '50%', backgroundColor: 'var(--surface-b)', color: 'var(--surface-d)' }}></i>
-                <span style={{ fontSize: '1.2em', color: 'var(--text-color-secondary)' }} className="my-5">
-                    Drag and Drop Image Here
+                <span style={{ fontSize: '1.2em', color: 'var(--text-color-secondary)' }} className="my-5 w-[60%] text-center">
+                You can drag and drop a dataset (CSV, XLSX, XLS) anywhere on this page to upload.
+                <br /> <small onClick={() =>{ setOpened(true); alert("cliked")}} className=' cursor-pointer text-blue-500'>(What should my dataset look like?)</small>                
                 </span>
             </div>
         );
@@ -98,6 +107,7 @@ export default function TemplateDemo() {
     const chooseOptions = { icon: 'pi pi-fw pi-images', iconOnly: true, className: 'custom-choose-btn p-button-rounded p-button-outlined' };
     const uploadOptions = { icon: 'pi pi-fw pi-cloud-upload', iconOnly: true, className: 'custom-upload-btn p-button-success p-button-rounded p-button-outlined' };
     const cancelOptions = { icon: 'pi pi-fw pi-times', iconOnly: true, className: 'custom-cancel-btn p-button-danger p-button-rounded p-button-outlined' };
+
 
     return (
         <div>
@@ -114,3 +124,5 @@ export default function TemplateDemo() {
     )
 }
         
+
+

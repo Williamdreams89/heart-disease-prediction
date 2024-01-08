@@ -6,6 +6,10 @@ import { MantineProvider } from '@mantine/core';
 import '@mantine/dropzone/styles.css';
 import { PrimeReactProvider } from 'primereact/api';
 
+const value = {
+  ripple: false,
+};
+
 
 
 const root = ReactDOM.createRoot(
@@ -13,8 +17,12 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <PrimeReactProvider>
+    <PrimeReactProvider value={value}>
+      <MantineProvider>
     <App />
+
+      </MantineProvider>
     </PrimeReactProvider>
+
   </React.StrictMode>
 );
