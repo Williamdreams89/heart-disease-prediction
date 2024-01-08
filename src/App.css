@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.form_entry {
+  display: grid;
+  gap: 5rem;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  padding: 20px;
+  margin: auto;
+}
+
+
+@media screen and (max-width:640px) and (min-width:768px){
+    .form_entry{
+        width: 70vw;
+    }
+
+    
+}
+
+@media screen and (min-width:769px) {
+    .form_entry{
+        width: 65% !important;
+        column-gap: 2rem;
+        row-gap: 3rem;
+    }
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
