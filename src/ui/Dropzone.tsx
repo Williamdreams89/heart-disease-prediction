@@ -2,6 +2,7 @@ import 'primereact/resources/themes/saga-blue/theme.css';
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 import 'primeflex/primeflex.css';
+import "@mantine/core/styles/Modal.css"
 
 
 
@@ -85,20 +86,15 @@ export default function TemplateDemo() {
         );
     };
 
-    const [opened, setOpened] = useState(false)
 
     const emptyTemplate = () => {
       
         return (
             <div className="flex align-items-center flex-column">
-              <Modal centered opened={opened} onClose={()=>setOpened(false)} title="What should my dataset look like?
-                overlayColor={theme.colorScheme === 'dark' ? theme.colors.dark[9] : theme.colors.gray[2]}
-                overlayOpacity={0.95}
-              "></Modal>
                 <i className="pi pi-image mt-3 p-5" style={{ fontSize: '5em', borderRadius: '50%', backgroundColor: 'var(--surface-b)', color: 'var(--surface-d)' }}></i>
                 <span style={{ fontSize: '1.2em', color: 'var(--text-color-secondary)' }} className="my-5 w-[60%] text-center">
                 You can drag and drop a dataset (CSV, XLSX, XLS) anywhere on this page to upload.
-                <br /> <small onClick={() =>{ setOpened(true)}} className=' cursor-pointer text-blue-500'>(What should my dataset look like?)</small>                
+                <br /> <small className=' cursor-pointer text-blue-500'>(What should my dataset look like?)</small>                
                 </span>
             </div>
         );
@@ -111,7 +107,6 @@ export default function TemplateDemo() {
 
     return (
         <div>
-
             <Tooltip target=".custom-choose-btn" content="Choose" position="bottom" />
             <Tooltip target=".custom-upload-btn" content="Upload" position="bottom" />
             <Tooltip target=".custom-cancel-btn" content="Clear" position="bottom" />
