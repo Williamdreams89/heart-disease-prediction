@@ -12,8 +12,11 @@ const App = () => {
   return (
     <div className=" app_container flex  flex-col m-auto w-[90vw] lg:w-[60vw] relative">
       {isOpen&&<div className=' w-[100vw] h-[100vh] bg-[rgba(255,255,255, 20%)] fixed z-[100] left-0 flex items-center justify-center' style={{backdropFilter: "blur(5px)"}}>
-          <div className="modal-content w-[80%] h-[300px] bg-slate-400 fixed z-50">
-            <IconX onClick={closeModal} />
+          <div className="modal-content w-[80%] md:w-[70%] rounded-lg lg:w-[40%] h-[370px] bg-white outline-1 fixed z-50" style={{border: "0.1px solid rgb(241, 234, 234)", boxShadow:"0px 10px 15px -3px rgba(0,0,0,0.1)"}}>
+            <div className="relative">
+            <IconX className=" text-slate-600 font-semibold absolute top-2 right-1 cursor-pointer" onClick={closeModal} />
+            <h3 className=" font-bold absolute left-4 top-6" style={{letterSpacing:"2px"}}>What should my dataset look like?</h3>
+            </div>
 
           </div>
       </div>}
@@ -33,7 +36,7 @@ const App = () => {
       <InputNumber type="number" placeholder="Category" labelname="Number of vessels fluro" />
       <InputNumber type="number" placeholder="Number" labelname="Thallium" />
     </div>
-      <input type="submit" value="Predict Fields" className=" bg-black text-white p-4 rounded-md w-[100%]" />
+      <input type="submit" value="Predict Fields" className=" bg-black text-white mt-6 p-4 rounded-md w-[100%]" />
     </form>
     <DropzoneCompo />
     <div className=" mb-10"></div>
