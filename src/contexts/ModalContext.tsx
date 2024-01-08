@@ -1,6 +1,5 @@
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react';
 
-// Define modal context type
 interface ModalContextProps {
   isOpen: boolean;
   openModal: () => void;
@@ -9,7 +8,6 @@ interface ModalContextProps {
 
 const ModalContext = createContext<ModalContextProps | undefined>(undefined);
 
-// Define ModalProvider props
 interface ModalProviderProps {
   children: ReactNode;
 }
@@ -17,8 +15,26 @@ interface ModalProviderProps {
 export const ModalProvider: React.FC<ModalProviderProps> = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const openModal = () => setIsOpen(true);
-  const closeModal = () => setIsOpen(false);
+  const openModal = () => {setIsOpen(true); document.body.style.overflow = 'hidden'; };
+  const closeModal = () => {setIsOpen(false); document.body.style.overflow = '';};
+
+  // Close modal on click outside
+  useEffect(() => {
+    const handleOutsideClick = (event: MouseEvent) => {
+      if (isOpen && event.target instanceof Node) {
+        // Check if the clicked element or its ancestor is the modal content
+        if (!(event.target as HTMLElement).closest('.modal-content')) {
+          closeModal();
+        }
+      }
+    };
+
+    document.addEventListener('mousedown', handleOutsideClick);
+
+    return () => {
+      document.removeEventListener('mousedown', handleOutsideClick);
+    };
+  }, [isOpen, closeModal]);
 
   const value: ModalContextProps = {
     isOpen,

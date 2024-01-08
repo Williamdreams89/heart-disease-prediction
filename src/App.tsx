@@ -12,7 +12,7 @@ const App = () => {
   return (
     <div className=" app_container flex  flex-col m-auto w-[90vw] lg:w-[60vw] relative">
       {isOpen&&<div className=' w-[100vw] h-[100vh] bg-[rgba(255,255,255, 20%)] fixed z-[100] left-0 flex items-center justify-center' style={{backdropFilter: "blur(5px)"}}>
-          <div className="w-[80%] h-[300px] bg-slate-400 fixed z-50">
+          <div className="modal-content w-[80%] h-[300px] bg-slate-400 fixed z-50">
             <IconX onClick={closeModal} />
 
           </div>
