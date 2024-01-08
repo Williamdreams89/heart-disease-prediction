@@ -1,5 +1,4 @@
 import InputNumber from "./ui/inputField"
-import { Grid, SimpleGrid } from "@mantine/core";
 import './App.css';
 import '@mantine/dropzone/styles.css';
 import DropzoneCompo from "./ui/Dropzone"
