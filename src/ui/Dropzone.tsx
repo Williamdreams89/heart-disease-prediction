@@ -98,7 +98,7 @@ export default function TemplateDemo() {
                 <i className="pi pi-image mt-3 p-5" style={{ fontSize: '5em', borderRadius: '50%', backgroundColor: 'var(--surface-b)', color: 'var(--surface-d)' }}></i>
                 <span style={{ fontSize: '1.2em', color: 'var(--text-color-secondary)' }} className="my-5 w-[60%] text-center">
                 You can drag and drop a dataset (CSV, XLSX, XLS) anywhere on this page to upload.
-                <br /> <small onClick={() =>{ setOpened(true); alert("cliked")}} className=' cursor-pointer text-blue-500'>(What should my dataset look like?)</small>                
+                <br /> <small onClick={() =>{ setOpened(true)}} className=' cursor-pointer text-blue-500'>(What should my dataset look like?)</small>                
                 </span>
             </div>
         );
