@@ -59,7 +59,7 @@ export default function TemplateDemo() {
         const formatedValue = fileUploadRef && fileUploadRef.current ? fileUploadRef.current.formatSize(totalSize) : '0 B';
 
         return (
-            <div className={className} style={{ backgroundColor: 'transparent', display: 'flex', alignItems: 'center', marginTop:"2rem" }}>
+            <div className={` ${className}`} style={{ backgroundColor: 'transparent', display: 'flex', alignItems: 'center', marginTop:"2rem" }}>
                 {chooseButton}
                 {uploadButton}
                 {cancelButton}
