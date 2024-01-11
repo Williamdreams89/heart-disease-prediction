@@ -36,7 +36,7 @@ const App = () => {
 
           </div>
       </div>}
-    <h2 className=" w-full sm:text-3xl text-5xl font-extrabold text-slate-700 mb-9 mt-12 flex items-center justify-start gap-3">Heart Disease Prediction</h2>
+    <h2 className=" w-full sm:text- text-5xl font-extrabold text-slate-700 mb-9 mt-12 flex items-center justify-start gap-3">Heart Disease Prediction</h2>
     <form onSubmit={handleSubmit} className="flex justify-around items-center flex-col w-full">
     <div className=" form_entry w-full">
       <InputNumber type="number" placeholder="Number" labelname="Age" />
