@@ -10,9 +10,7 @@ import { IconFileDownload } from "@tabler/icons-react";
 
 const App = () => {
   const { isOpen, openModal, closeModal } = useModal();
-  const handleSubmit = (event:any) =>{
-    event.preventDefault();
-  }
+  
 
   const [formData, setFormData] = React.useState({  
     age: "",

@@ -65,7 +65,7 @@ export default function TemplateDemo() {
                 {cancelButton}
                 <div className="flex align-items-center gap-3 ml-auto">
                     <span>{formatedValue} / 1 MB</span>
-                    <ProgressBar value={value} showValue={false} style={{ width: '10rem', height: '12px' }}></ProgressBar>
+                    <ProgressBar className=' w-[7rem] md:w-[10rem]' value={value} showValue={false} style={{ height: '12px' }}></ProgressBar>
                 </div>
             </div>
         );
