@@ -2,7 +2,7 @@ import InputNumber from "./ui/inputField"
 import './App.css';
 import '@mantine/dropzone/styles.css';
 import DropzoneCompo from "./ui/Dropzone"
-import { useState, FC, useEffect } from "react";
+import React, { useState, FC, useEffect } from "react";
 import { useModal } from "./contexts/ModalContext";
 import { IconX } from "@tabler/icons-react";
 import { IconFileDownload } from "@tabler/icons-react";
@@ -13,6 +13,35 @@ const App = () => {
   const handleSubmit = (event:any) =>{
     event.preventDefault();
   }
+
+  const [formData, setFormData] = React.useState({  
+    age: "",
+    sex: "",
+    bp: "",
+    chlorestrol: "",
+    fbs: "",
+    ekg: "",
+    max_hr: "",
+    angina: "",
+    depression: "",
+    slope: "",
+    vessels: "",
+    thallium: "",
+  });
+
+
+  const handleInputChange = (name: string, value: string): void => {
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>): void =>  {
+    // Handle form submission logic here using formData
+    e.preventDefault()
+    console.log("Form submitted with data:", formData);
+  };
   return (
     <div className=" app_container flex  flex-col m-auto w-[90vw] lg:w-[60vw] relative">
       {isOpen&&<div className=' w-[100vw] h-[100vh] bg-[rgba(255,255,255, 20%)] fixed z-[100] left-0 flex items-center justify-center' style={{backdropFilter: "blur(5px)"}}>
@@ -37,22 +66,23 @@ const App = () => {
           </div>
       </div>}
     <h2 className=" w-full sm:text- text-5xl font-extrabold text-slate-700 mb-9 mt-12 flex items-center justify-start gap-3">Heart Disease Prediction</h2>
-    <form onSubmit={handleSubmit} className="flex justify-around items-center flex-col w-full">
+    <form onSubmit={handleFormSubmit} className="flex justify-around items-center flex-col w-full">
     <div className=" form_entry w-full">
-      <InputNumber type="number" placeholder="Number" labelname="Age" />
-      <InputNumber type="number" placeholder="Category" labelname="Sex" />
-      <InputNumber type="number" labelname="BP" placeholder="Number" />
-      <InputNumber type="number" labelname="Cholesterol" placeholder="Number" />
-      <InputNumber type="number" placeholder="Category" labelname="FBS over 120" />
-      <InputNumber type="number" placeholder="Category" labelname="EKG results"/>
-      <InputNumber type="number" placeholder="Category" labelname="Max HR" />
-      <InputNumber type="number" placeholder="Category" labelname="Exercise angina" />
-      <InputNumber type="number" placeholder="Number" labelname="ST depression" />
-      <InputNumber type="number" placeholder="Number" labelname="Slope of ST" />
-      <InputNumber type="number" placeholder="Category" labelname="Number of vessels fluro" />
-      <InputNumber type="number" placeholder="Number" labelname="Thallium" />
+      <InputNumber name="age" labelname="Age" placeholder="Number" onInputChange={handleInputChange} />
+      <InputNumber name="sex" labelname="Sex" placeholder="Number" onInputChange={handleInputChange} />
+      <InputNumber name="pain_type" labelname="Chest Pain Type" placeholder="Number" onInputChange={handleInputChange} />
+      <InputNumber name="bp" labelname="BP" placeholder="Number" onInputChange={handleInputChange} />
+      <InputNumber name="chlorestrol" labelname="Cholesterol" placeholder="Number" onInputChange={handleInputChange} />
+      <InputNumber name="fbs" placeholder="Category" labelname="FBS over 120" onInputChange={handleInputChange} />
+      <InputNumber name="ekg" placeholder="Category" labelname="EKG results" onInputChange={handleInputChange}/>
+      <InputNumber name="max_hr" placeholder="Category" labelname="Max HR" onInputChange={handleInputChange}/>
+      <InputNumber name="angina" placeholder="Category" labelname="Exercise angina" onInputChange={handleInputChange} />
+      <InputNumber name="depression" placeholder="Number" labelname="ST depression" onInputChange={handleInputChange} />
+      <InputNumber name="slope" placeholder="Number" labelname="Slope of ST" onInputChange={handleInputChange} />
+      <InputNumber name="vessels" placeholder="Category" labelname="Number of vessels fluro" onInputChange={handleInputChange} />
+      <InputNumber name="thallium" placeholder="Number" labelname="Thallium" onInputChange={handleInputChange} />
     </div>
-      <input type="submit" value="Predict Fields" className=" bg-black text-white mt-6 p-4 rounded-md w-[100%]" />
+      <input type="submit" value="Predict Fields" className=" bg-black text-white mt-6 p-4 rounded-md w-[100%] h-[4rem] flex items-center justify-center text-lg font-bold" />
     </form>
     <DropzoneCompo />
     <div className=" mb-10"></div>
