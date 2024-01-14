@@ -33,7 +33,7 @@ const App = () => {
   const handleInputChange = (name: string, value: string): void => {
     setFormData((prevData) => ({
       ...prevData,
-      [name]: value,
+      [name]: parseInt(value),
     }));
   };
 
