@@ -65,8 +65,8 @@ const App = () => {
 
           </div>
       </div>}
-    <h2 className=" w-full sm:text- text-5xl font-extrabold text-slate-700 mb-9 mt-12 flex items-center justify-start gap-3">Heart Disease Prediction</h2>
-    <form onSubmit={handleFormSubmit} className="flex justify-around items-center flex-col w-full">
+    <h2 className=" w-full text-2xl md:text-4xl lg:text-6xl ml-4 font-extrabold text-slate-700 mb-9 mt-12 flex items-center justify-start gap-3">Heart Disease Prediction</h2>
+    <form onSubmit={handleFormSubmit} className="flex justify-around items-center flex-col">
     <div className=" form_entry w-full">
       <InputNumber name="age" labelname="Age" placeholder="Number" onInputChange={handleInputChange} />
       <InputNumber name="sex" labelname="Sex" placeholder="Number" onInputChange={handleInputChange} />

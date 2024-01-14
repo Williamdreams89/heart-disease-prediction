@@ -28,6 +28,7 @@ const InputField: FC<InputProps> = ({ placeholder, labelname, onInputChange, nam
         onChange={handleInputChange}
         placeholder={placeholder}
         aria-controls="False"
+        className=""
       />
     </div>
   );
