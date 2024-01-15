@@ -15,6 +15,7 @@ const App = () => {
   const [formData, setFormData] = React.useState({  
     age: "",
     sex: "",
+    pain_type: "",
     bp: "",
     chlorestrol: "",
     fbs: "",

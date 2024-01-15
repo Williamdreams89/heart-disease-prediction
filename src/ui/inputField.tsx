@@ -1,5 +1,6 @@
 import React, { FC, useState } from "react";
 import "./styles/inputFieldStyles.css";
+import { IconInfoCircle } from "@tabler/icons-react";
 
 interface InputProps {
   placeholder: string;
@@ -17,12 +18,14 @@ const InputField: FC<InputProps> = ({ placeholder, labelname, onInputChange, nam
     onInputChange(name, value);
   };
 
+
+
   return (
     <div className="container">
-      <label htmlFor="">{labelname}</label>
+      <label htmlFor="" className=" flex">{labelname}<sup><IconInfoCircle size={'15px'} className="text-slate-500 cursor-pointer" style={{fontSize:".01px !important"}} /></sup></label>
       <input
         type="number"
-        name={name}  // Use the labelname as the name attribute for simplicity
+        name={name}  
         id=""
         value={inputValue}
         onChange={handleInputChange}
